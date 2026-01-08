@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            loginControl1 = new LoginControl();
             pictureBox1 = new PictureBox();
             label8 = new Label();
             emaillabel = new Label();
@@ -52,6 +53,7 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(loginControl1);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label8);
             panel1.Controls.Add(emaillabel);
@@ -72,6 +74,14 @@
             panel1.Size = new Size(757, 552);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
+            // 
+            // loginControl1
+            // 
+            loginControl1.BackColor = Color.Black;
+            loginControl1.Location = new Point(-21, -75);
+            loginControl1.Name = "loginControl1";
+            loginControl1.Size = new Size(814, 696);
+            loginControl1.TabIndex = 15;
             // 
             // pictureBox1
             // 
@@ -142,6 +152,7 @@
             Loginbutton.TabIndex = 8;
             Loginbutton.Text = "Login";
             Loginbutton.UseVisualStyleBackColor = false;
+            Loginbutton.Click += Loginbutton_Click;
             // 
             // Registerbutton
             // 
@@ -254,5 +265,6 @@
         private PictureBox pictureBox1;
         private Label label8;
         private Label emaillabel;
+        private LoginControl loginControl1;
     }
 }

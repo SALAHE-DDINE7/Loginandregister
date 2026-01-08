@@ -1,8 +1,9 @@
-using Loginandregister.Data;
+ï»¿using Loginandregister.Data;
 using Loginandregister.Model;
 using System;
 using System.Linq;
 using System.Windows.Forms;
+
 namespace Loginandregister
 {
     public partial class LoginFrom : Form
@@ -57,14 +58,14 @@ namespace Loginandregister
             }
 
             string passwordHash = HashPassword(password);
-            string picturePath = pictureBox1.Tag?.ToString(); // peut être null
+            string picturePath = pictureBox1.Tag?.ToString(); // peut Ãªtre null
 
             using (var db = new UsersDbContext())
             {
-                // Vérifier si l'email existe déjà
+                // VÃ©rifier si l'email existe dÃ©jÃ 
                 if (db.Users.Any(u => u.Email == email))
                 {
-                    MessageBox.Show("Cet email est déjà utilisé !");
+                    MessageBox.Show("Cet email est dÃ©jÃ  utilisÃ© !");
                     return;
                 }
 
@@ -79,13 +80,13 @@ namespace Loginandregister
                 db.Users.Add(user);
                 db.SaveChanges();
 
-                MessageBox.Show("Compte créé avec succès !");
-                // ?? Afficher le Username et Email dans les Labels
+                MessageBox.Show("Compte crÃ©Ã© avec succÃ¨s !");
+                // ðŸ”¹ Afficher le Username et Email dans les Labels
                 namelabel.Text = "Username : " + user.Username;
                 emaillabel.Text = "Email : " + user.Email;
-                
 
-                // ?? Vider les TextBox pour le prochain enregistrement
+
+                // ðŸ”¹ Vider les TextBox pour le prochain enregistrement
                 nametextBox.Text = "";
                 emailtextBox.Text = "";
                 passwordtextBox.Text = "";
@@ -96,6 +97,11 @@ namespace Loginandregister
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void Loginbutton_Click(object sender, EventArgs e)
+        {
+            loginControl1.BringToFront();
         }
     }
 }
